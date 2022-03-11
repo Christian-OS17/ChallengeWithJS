@@ -2,6 +2,7 @@
 
 :root {
     --fon-14:1.4em;
+    --font-20: 2em;
 
     --color-var: #0D0D0D;
     --blanco: #ffffff;
@@ -9,6 +10,7 @@
     --m-blue-background: #2D3748;
 
     --border-color:#202837;
+    --background-heder-windows:#202837;
 }
 *{
     margin: 0;
@@ -22,7 +24,7 @@ body{
 }
 
 
-
+@media (max-width:767px) {
     header {
         width: 100%;
         height: 44px;
@@ -34,15 +36,6 @@ body{
         display: flex;
         justify-content: space-between;
         align-items: center;
-    }
-    header .section-burguer-menu .burguer-menu {
-        width: 32px;
-        height: 32px;;
-        background-image: url("../icon/hamburger_button_menu.svg");
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: contain;
-        margin-left: 10PX;
     }
     header .section-burguer-menu .circle {
         height: 10px;
@@ -58,6 +51,37 @@ body{
         font-weight: bold;
         font-size: var(--fon-14);
         letter-spacing: 0px;
+    }
+    .hamburguer {
+        display: block;
+        width: 35px;
+        height: 35px;
+        margin-left: 20px;
+        cursor: pointer;
+        appearance: none;
+        background: none;
+        outline: none;
+        border: none;
+    }
+
+    .hamburguer .bar, .hamburguer::after,.hamburguer::before {
+        width: 80%;
+        height: 3px;
+        content: '';
+        display: block;
+        background-color: var(--blanco);
+        margin: 6px 0px;
+        transition: 0.4s;
+        border-radius: 4px;
+    }
+    .hamburguer.is-active::before {
+        transform: rotate(-45deg) translate(-9px, 6px);
+    }
+    .hamburguer.is-active .bar {
+        opacity: 0;
+    }
+    .hamburguer.is-active::after {
+        transform: rotate(45deg) translate(-7px, -3.5px);
     }
     header .section-burguer-menu .search {
         width: 30px;
@@ -79,18 +103,130 @@ body{
     .profile-right {
         display: none;
     }
+    .asider-bar {
+        background: #000000;
+        width: 263px;
+        height: 100vh;
+        display: block;
+        position: absolute;
+        left: -263px;
+        transition: 0.8s;
+
+    }
+    .asider-bar.is-active {
+        left: 0px;
+    }
+    .asider-bar .section-logo {
+        margin-top: 4px;
+        height: 65px;
+        width: 100%;
+        border-bottom: 1px solid var(--blanco);
+        background-image: url("../images/LogoMXmarket.png");
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+    .asider-bar .section-profile {
+        width: 100%;
+        height: 210px;
+        border-bottom: 1px solid var(--blanco);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .asider-bar .section-profile  img{
+       width: 90px;
+       height: 90px;
+       border-radius: 50%;
+       margin-bottom: 20px;
+    }
+    .asider-bar .section-profile .bar-name {
+        color: var(--blanco);
+        font-weight: bold;
+        font-size: var(--fon-14);
+        margin-bottom: 2 px;
+    }
+    .asider-bar .section-profile .bar-email {
+        color: var(--blanco);
+        font-weight: 400;
+        font-size: var(--fon-14);
+    }
+    nav {
+        width: 100%;
+        font-size: var(--font-20);
+    }
+    nav ul{
+        padding: 80px 20px 0;
+    }
+    nav ul li {
+        list-style: none;
+        padding-bottom: 20px;
+        color: var(--blanco);
+    }
+    .asider-bar ul li a{
+        list-style: none;
+        text-decoration: none;
+        color: var(--blanco);
+    }
+    nav .circle-white{
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: 8px;
+        background: var(--blanco);
+    }
+    nav .circle-red{
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: 8px;
+        background:#F56565;
+    }
+    nav .circle-yellow{
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: 8px;
+        background: #ECC94B;
+    }
+    nav .circle-green{
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: 8px;
+        background: #48BB78;
+    }
+    nav .circle-cedetblue{
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: 8px;
+        background: #38B2AC;
+    }
+    nav .circle-blue{
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: 8px;
+        background: #4299E1;
+    }
     main {
         width: 100%;
         height: 100vh;
         background: var(--blue-background);
     }
-
+}
 
 
 @media screen and (min-width: 768px) and (max-width:1023px) {
-    .asiderbar{
-        display: none;
-    }
+  
     header {
         width: 100%;
         height: 70px;
@@ -101,15 +237,6 @@ body{
         display: flex;
         justify-content: space-between;
         align-items: center;
-    }
-    header .section-burguer-menu .burguer-menu {
-        width: 32px;
-        height: 32px;;
-        background-image: url("../icon/hamburger_button_menu.svg");
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: contain;
-        margin-left: 10PX;
     }
     header .section-burguer-menu .circle {
         height: 10px;
@@ -153,13 +280,47 @@ body{
         background-size: contain;
         margin-right: 15px;
     }
+    .hamburguer {
+        display: block;
+        width: 35px;
+        height: 35px;
+        margin-left: 20px;
+        cursor: pointer;
+        appearance: none;
+        background: none;
+        outline: none;
+        border: none;
+    }
+
+    .hamburguer .bar, .hamburguer::after,.hamburguer::before {
+        width: 80%;
+        height: 3px;
+        content: '';
+        display: block;
+        background-color: var(--blanco);
+        margin: 6px 0px;
+        transition: 0.8s;
+        border-radius: 4px;
+    }
+    .hamburguer.is-active::before {
+        transform: rotate(-45deg) translate(-9px, 6px);
+    }
+    .hamburguer.is-active .bar {
+        opacity: 0;
+    }
+    .hamburguer.is-active::after {
+        transform: rotate(45deg) translate(-7px, -3.5px);
+    }
     .input-search input {
-        max-width: 83%;
+        width: 80%;
+        height: 100%;
         border: none;
         outline: none;
         margin-left: -12px;
         height: 60%;
-        background: #ffffff;
+        background-color: var(--m-blue-background);
+
+        opacity: 5;
         color: #697182;
     }
     .input-search .search {
@@ -237,6 +398,119 @@ body{
         height: 55px;
         border-radius: 50%;
     }
+    .asider-bar {
+        background: #000000;
+        width: 263px;
+        height: 100vh;
+        display: block;
+        position: absolute;
+        left: -263px;
+        transition: 0.4s;
+    }
+    .asider-bar.is-active {
+        left: 0px;
+    }
+    .asider-bar .section-logo {
+        margin-top: 4px;
+        height: 65px;
+        width: 100%;
+        border-bottom: 1px solid var(--blanco);
+        background-image: url("../images/LogoMXmarket.png");
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+    .asider-bar .section-profile {
+        width: 100%;
+        height: 210px;
+        border-bottom: 1px solid var(--blanco);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .asider-bar .section-profile  img{
+       width: 90px;
+       height: 90px;
+       border-radius: 50%;
+       margin-bottom: 20px;
+    }
+    .asider-bar .section-profile .bar-name {
+        color: var(--blanco);
+        font-weight: bold;
+        font-size: var(--fon-14);
+        margin-bottom: 2 px;
+    }
+    .asider-bar .section-profile .bar-email {
+        color: var(--blanco);
+        font-weight: 400;
+        font-size: var(--fon-14);
+    }
+    nav {
+        width: 100%;
+        font-size: var(--font-20);
+    }
+    nav ul{
+        padding: 100px 20px 0;
+    }
+    nav ul li {
+        list-style: none;
+        padding-bottom: 20px;
+        color: var(--blanco);
+    }
+    .asider-bar ul li a{
+        list-style: none;
+        text-decoration: none;
+        color: var(--blanco);
+    }
+    nav .circle-white{
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: 8px;
+        background: var(--blanco);
+    }
+    nav .circle-red{
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: 8px;
+        background:#F56565;
+    }
+    nav .circle-yellow{
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: 8px;
+        background: #ECC94B;
+    }
+    nav .circle-green{
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: 8px;
+        background: #48BB78;
+    }
+    nav .circle-cedetblue{
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: 8px;
+        background: #38B2AC;
+    }
+    nav .circle-blue{
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: 8px;
+        background: #4299E1;
+    }
     main {
         width: 100%;
         height: 100vh;
@@ -244,7 +518,9 @@ body{
     }
 }
 
-@media (min-width:1024px) {
+
+/*---------- WORKSPACE -----------*/
+@media (min-width: 1024px) {
 
     body {
         display: grid;
@@ -279,16 +555,14 @@ body{
         justify-content: space-between;
         align-items: center;
     }
-    header .section-burguer-menu .burguer-menu {
-        width: 32px;
-        height: 32px;;
-        background-image: url("../icon/hamburger_button_menu.svg");
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: contain;
-        margin-left: 10PX;
+    header .section-burguer-menu .circle {
+        height: 10px;
+        width: 10px;
+        border-radius: 50%;
+        background: var(--blanco);
+        display: inline-block;
+        margin-right: 5px;
     }
-   
     header .section-burguer-menu .title {
         color: var(--blanco);
         text-decoration: none;
@@ -299,9 +573,26 @@ body{
         margin-top: 130px;
         margin-left: 12px;;
     }
-    
-    
-   
+    .hamburguer {
+        display: block;
+        width: 35px;
+        height: 35px;
+        margin-left: 20px;
+        appearance: none;
+        background: none;
+        outline: none;
+        border: none;
+    }
+    .hamburguer .bar, .hamburguer::after,.hamburguer::before {
+        width: 80%;
+        height: 3px;
+        content: '';
+        display: block;
+        background-color: var(--blanco);
+        margin: 6px 0px;
+        transition: 0.4s;
+        border-radius: 4px;
+    }
     .input-search {
         background: var(--m-blue-background) 0% 0% no-repeat padding-box;
         width: 366px;
@@ -313,9 +604,13 @@ body{
         
     }
     .input-search input {
-        width: 300px;
+        width: 90%;
+        height: 90%;;
         border: none;
-            outline: none;
+        outline: none;
+        background-color: var(--m-blue-background);
+        color: #697182;
+        opacity: 5;
     }
     .input-search .search {
         margin-left: 15px;
@@ -346,9 +641,6 @@ body{
         background-size: contain;
         background-repeat: no-repeat;
     }
-
-}
-
     .profile-right .icon-bell .notification-bell {
         position: absolute;
         width: 17px;
@@ -396,8 +688,209 @@ body{
         height: 55px;
         border-radius: 50%;
     }
+    .asider-bar {
+        background: #000000;
+        width: 236px;
+        height: 108.5vh;
+    }
+    .asider-bar .section-logo {
+        margin-top: 4px;
+        height: 65px;
+        width: 100%;
+        border-bottom: 1px solid var(--blanco);
+        background-image: url("../images/LogoMXmarket.png");
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+    .asider-bar .section-profile {
+        width: 100%;
+        height: 210px;
+        border-bottom: 1px solid var(--blanco);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .asider-bar .section-profile  img{
+       width: 90px;
+       height: 90px;
+       border-radius: 50%;
+       margin-bottom: 20px;
+    }
+    .asider-bar .section-profile .bar-name {
+        color: var(--blanco);
+        font-weight: bold;
+        font-size: var(--fon-14);
+        margin-bottom: 2 px;
+    }
+    .asider-bar .section-profile .bar-email {
+        color: var(--blanco);
+        font-weight: 400;
+        font-size: var(--fon-14);
+    }
+    nav {
+        width: 100%;
+        font-size: var(--font-20);
+    }
+    nav ul{
+        padding: 200px 20px 0;
+    }
+    nav ul li {
+        list-style: none;
+        padding-bottom: 20px;
+        color: var(--blanco);
+        
+    }
+    .asider-bar ul li a{
+        list-style: none;
+        text-decoration: none;
+        color: var(--blanco);
+    }
+    nav .circle-white{
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: 8px;
+        background: var(--blanco);
+    }
+    nav .circle-red{
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: 8px;
+        background:#F56565;
+    }
+    nav .circle-yellow{
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: 8px;
+        background: #ECC94B;
+    }
+    nav .circle-green{
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: 8px;
+        background: #48BB78;
+    }
+    nav .circle-cedetblue{
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: 8px;
+        background: #38B2AC;
+    }
+    nav .circle-blue{
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: 8px;
+        background: #4299E1;
+    }
     main {
         width: 100%;
-        height: 100vh;
+        height: 100vh; 
         background: var(--blue-background);
+        padding: 50px;
     }
+    main .card-analysis {
+        width: 100%;
+        height: 100%;
+        background-color: var(--m-blue-background);
+        border-radius: 8px;
+    }
+    main .card-analysis .title {
+        background-color: var(--background-heder-windows);
+        width: 100%;
+        height: 40px;
+        color: var(--blanco);
+        padding: 10px 10px 10px;
+        border-top: 8px;
+    }
+    .card {
+        margin:10px;
+        background-color: var(--blue-background);
+    }
+    .card.is-active {
+        margin:10px;
+        height: 107px;
+        background-color: var(--blue-background);
+    }
+    .card .header-card {
+        margin: 4px 4px;
+        background-color: var(--color-var);
+        color: var(--blanco);
+        display: flex;
+        justify-content: space-between;
+        height: 29px;
+    }
+    .card .header-card .left{
+        width: 300px;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center ;
+    }
+    .card .header-card .left .ln{
+        border-left: 1px solid #697182;
+        height:70%;
+        opacity: 4;
+    }
+    .header-card .left h3{
+        width: 100px; 
+    }
+    .show-graph{
+        width: 25px;
+        height: 25px;
+        border: 1px solid var(--blanco);
+        
+    }
+    .show-graph .cls-1{
+        fill: #ffffff;
+    }
+    .show-table {
+        width: 25px;
+        height: 25px;
+        border: 1px solid var(--blanco);
+    }
+    .show-table .st0 { 
+        fill: #ffffff;
+    }
+    .card .header-card .right{
+        display: flex;
+        align-items: center ;
+    }
+    
+    .right .drag-drop {
+        width: 25px;
+        height: 25px;
+        border: none;
+    }
+    .right .drag-drop .dr-1 {
+        fill: #ffffff;
+    }
+    .right .collapse {
+        width: 25px;
+        height: 25px;
+        border: none;
+        margin-left: 5px;
+        text-align: center;
+        background-color: var(--color-var);
+        cursor: pointer;
+    }
+    .right .collapse .mv-1 {
+        fill: #ffffff;
+        transform: rotate(85deg) translate(-1px, -10px);
+    } 
+    .right .collapse .mv-1.is-active {
+        fill: #ffffff;
+        transform: rotate(0deg) translate(1px, 0px);
+    }
+}
